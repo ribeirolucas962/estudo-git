@@ -1,1 +1,3 @@
-print('hello git')
+
+messagem = "oi"
+print(messagem)
