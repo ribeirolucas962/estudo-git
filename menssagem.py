@@ -1,4 +1,4 @@
-messagem =  "hello world! Utilizando o Git junto o vscosde!"
+messagem =  "hello world! Utilizando o Git junto o vscosde! Nova feature adicionada. Com sucesso!"
 print(messagem)
 
 def soma( a, b ):
