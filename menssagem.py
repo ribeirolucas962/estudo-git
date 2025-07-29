@@ -3,11 +3,10 @@ print(messagem)
 
 def soma( a, b ):
     return a + b
+
 def par_ou_impar(numero):
-    if numero % 2 == 0:
-        return "par"
-    else:
-        return "ímpar"
+    return "par" if numero % 2 == 0 else "impar"
+
     
 num1 = float(input("Digite o primeiro número: "))
 num2 = float(input("Digite o segundo número: "))
