@@ -1,0 +1,93 @@
+  
+  ## interessado apenas em trabalhar com os dados da colunaAge, podemos fazer:
+   
+   ```python
+   df["idade"]
+   ```
+   
+   Ou, se quisermos trabalhar com mais de uma coluna, podemos passar uma lista de colunas:
+   
+   ```python
+   df[["Age", "Name"]]
+   ```
+   
+   Note que, ao passar uma lista de colunas, o resultado será um DataFrame, 
+   enquanto ao passar uma única coluna, o resultado será uma Series.
+
+   Você Seriestambém pode criar um do zero:
+   
+ages = pd.Series([22, 35, 58], name="Age")
+
+ages
+Out[6]: 
+0    22
+1    35
+2    58
+Name: Age, dtype: int64
+
+Quero saber a idade máxima dos passageiros
+titanic["Age"].max()
+Out[7]: 73
+
+Em Series, os atributos não exigem parênteses, enquanto os métodos sim.
+idade.max()
+Out[8]: 73
+
+Estatisticas descritivas de algumas colunas
+df.describe()
+Out[9]: 
+             idade  
+
+
+# Lendo dados tabulares com a biblioteca `pandas`
+O pandas fornece a read_csv()função de ler dados armazenados como um arquivo csv em um pandas DataFrame. 
+O pandas suporta muitos formatos de arquivo ou fontes de dados diferentes prontos para uso (csv, excel, sql, json, parquet, …),
+ cada um deles com o prefixo read_*.csv()é um dos mais comuns, então vamos ver como ele funciona.
+titanic = pd.read_csv("datasets/titanic_completa_oficial.csv")
+
+Para exibir as primeiras 10 linhas do DataFrame, usamos o método head():
+titanic.head(10)
+
+
+Itepretando dados tabulares com a biblioteca `pandas`
+titanic.dtypes
+
+
+# Salvando DataFrames em arquivos Excel
+titanic.to_excel("titanic.xlsx", sheet_name="passengers", index=False)
+
+Resumo tecnico dos dados
+titanic.info()
+
+Imormaçoes importantes sobre o dataframe
+Reakanete e um DataFrame
+Ha uma quantidade entradas 1309 de entradas e 1308 de saidas
+Existem 14 colunas
+cada linhas tem um rotulo como index que varia de 0 a 1308
+Cada coluna tem um tipo de dado diferente, como int64, float64, object e bool
+
+A obtenção de dados no Pandas a partir de muitos formatos de arquivo ou fontes de dados diferentes é suportada por read_*funções.
+
+A exportação de dados do Pandas é feita por diferentes to_*métodos.
+
+Os métodos head/ tail/ infoe o dtypesatributo são convenientes para uma primeira verificação.
+
+
+Selecionando um subconjunto de um dataframe
+para selecionar uma coluna específica de um DataFrame, podemos usar a notação de colchetes:
+ages = titanic["Age"]
+ages.head()
+Out[5]: 
+0    22.0
+1    38.0
+2    26.0
+3    35.0
+4    35.0
+Name: Age, dtype: float64
+
+Verificando o tipo de saida
+type(titanic["Age"])
+
+olhando o shape de saida do dataframe
+titanic.shape
+

@@ -1,0 +1,38 @@
+------------------- Comando do git e GitHub ----------------------
+
+Depois de instalado as configurações 
+git --version ==== Para ver as versão instalada
+
+git config --global user.name "Lucas Ribeiro" === Comando para configurar o nome global  
+
+git config --global user.email "ribeirolucas962@gmail.com.com ==== configurar o email global
+
+git config --global --list = Comando para ver se esta cero as configurações 
+
+git config --global user.email "ribeirolucas962@gmail.com"
+
+mkdir === abrir uma pasta nova na área de trabalho 
+  ==== para entrar na pasta. 
+
+git init === para inicializar i git nessa pasta 
+
+echo  echo "print("hello git")" > hello.ipynb === criar um arquivo na pasta do git 
+
+git status === saber o que esta acontecendo dentro do repositório 
+
+git add . == vai olhar para todos os arquivos da pasta
+
+git add hello.ipunb === O git ai olhar para aquele arquivo especifico dentro do repositório 
+
+git comit -m "menssagem" === salvamento da versão no sue arquivo 
+
+git log === comando para ver se  foi feito o commit -m certo e aparece a hora autor do commit -m
+
+git push	Envia alterações	Local ➡ Remoto
+
+git pull	Baixa e mescla alterações	Remoto ➡ Local
+
+git remote add origin https://github.com/usuario/repo.git == Faz com que o repositório local passe a conhecer um repositório remoto no endereço especificado (https://github.com/usuario/repo.git) e dá a ele o nome de atalho origin.
+
+
+
