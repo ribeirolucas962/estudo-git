@@ -91,3 +91,151 @@ type(titanic["Age"])
 olhando o shape de saida do dataframe
 titanic.shape
 
+Fitrar os passageiros acima de 35 anos 
+above_35 = titanic[titanic["Age"] > 35]
+above_35.head()
+ 
+ Em seris
+ sempres inseri em colchetes a coluna Selecionando
+titanic["ages"]>35
+
+a isin()função condicional retorna um Truevalor para cada linha na lista fornecida. 
+Para filtrar as linhas com base nessa função, use a função condicional dentro dos colchetes de seleção []. 
+Nesse caso, a condição dentro dos colchetes de seleção verifica em quais linhas a coluna é 2 ou 3.titanic["Pclass"].isin([2, 3])Pclass
+
+O procedimento acima é equivalente a filtrar por linhas cuja classe é 2 ou 3 e combinar as duas instruções com um |operador (ou):
+
+class_23 = titanic[(titanic["Pclass"] == 2) | (titanic["Pclass"] == 3)]
+
+class_23.head()
+Out[19]: 
+   PassengerId  Survived  Pclass  ...     Fare Cabin  Embarked
+0            1         0       3  ...   7.2500   NaN         S
+2            3         1       3  ...   7.9250   NaN         S
+4            5         0       3  ...   8.0500   NaN         S
+5            6         0       3  ...   8.4583   NaN         Q
+7            8         0       3  ...  21.0750   NaN         S
+
+[5 rows x 12 columns]
+
+O procedimento acima é equivalente a filtrar por linhas cuja classe é 2 ou 3 e combinar as duas instruções com um |operador (ou):
+
+class_23 = titanic[(titanic["Pclass"] == 2) | (titanic["Pclass"] == 3)]
+
+class_23.head()
+Out[19]: 
+   PassengerId  Survived  Pclass  ...     Fare Cabin  Embarked
+0            1         0       3  ...   7.2500   NaN         S
+2            3         1       3  ...   7.9250   NaN         S
+4            5         0       3  ...   8.0500   NaN         S
+5            6         0       3  ...   8.4583   NaN         Q
+7            8         0       3  ...  21.0750   NaN         S
+
+[5 rows x 12 columns]
+
+Ao combinar várias instruções condicionais, cada condição deve ser colocada entre parênteses (). 
+Além disso, você não pode usar or/, andmas precisa usar o oroperador |e o andoperador &.
+
+
+A notna()função condicional retorna um valor Truepara cada linha em que os valores não são um Nullvalor. 
+Assim, isso pode ser combinado com os colchetes de seleção []para filtrar a tabela de dados.
+
+age_no_na = titanic[titanic["Age"].notna()]
+age_no_na.head()
+Out[21]: 
+   PassengerId  Survived  Pclass  ...     Fare Cabin  Embarked
+0            1         0       3  ...   7.2500   NaN         S
+1            2         1       1  ...  71.2833   C85         C
+2            3         1       3  ...   7.9250   NaN         S
+3            4         1       1  ...  53.1000  C123         S
+4            5         0       3  ...   8.0500   NaN         S
+
+[5 rows x 12 columns]
+
+Selecionando linhas e colunas específicas de Datraframe
+Neste caso, um subconjunto de linhas e colunas é criado de uma só vez e usar apenas colchetes 
+de seleção []não é mais suficiente. Os operadores loc/ ilocsão necessários antes dos colchetes de seleção []. 
+Ao usar loc/ iloc, a parte antes da vírgula são as linhas que você deseja selecionar e a parte depois da
+ vírgula são as colunas que você deseja selecionar.
+
+ adult_names = titanic.loc[titanic["Age"] > 35, "Name"]
+
+adult_names.head()
+Out[24]: 
+1     Cumings, Mrs. John Bradley Florence Briggs Th...
+6                               McCarthy, Mr. Timothy J
+11                             Bonnell, Miss. Elizabeth
+13                          Andersson, Mr. Anders Johan
+15                     Hewlett, Mrs. (Mary D Kingcome) 
+Name: Name, dtype: object
+
+Ao usar nomes de colunas, rótulos de linhas ou uma expressão condicional, 
+use o locoperador antes dos colchetes de seleção []. Tanto para a parte anterior 
+quanto posterior à vírgula, você pode usar um único rótulo, uma lista de rótulos, uma fatia de rótulos,
+ uma expressão condicional ou dois pontos. 
+Usar dois pontos especifica que você deseja selecionar todas as linhas ou colunas.
+
+titanic.iloc[9:25, 2:5]
+Out[25]: 
+    Pclass                                 Name     Sex
+9        2  Nasser, Mrs. Nicholas (Adele Achem)  female
+10       3      Sandstrom, Miss. Marguerite Rut  female
+11       1             Bonnell, Miss. Elizabeth  female
+12       3       Saundercock, Mr. William Henry    male
+13       3          Andersson, Mr. Anders Johan    male
+..     ...                                  ...     ...
+20       2                 Fynney, Mr. Joseph J    male
+21       2                Beesley, Mr. Lawrence    male
+22       3          McGowan, Miss. Anna "Annie"  female
+23       1         Sloper, Mr. William Thompson    male
+24       3        Palsson, Miss. Torborg Danira  female
+
+[16 rows x 3 columns]
+
+Novamente, um subconjunto de linhas e colunas é criado de uma só vez, 
+e usar apenas colchetes de seleção []não é mais suficiente.
+Quando estiver interessado especificamente em determinadas linhas e/ou colunas com base em sua posição na tabela,
+use o ilocoperador antes dos colchetes de seleção [].
+
+titanic.iloc[9:25, 2:5]
+Out[25]: 
+    Pclass                                 Name     Sex
+9        2  Nasser, Mrs. Nicholas (Adele Achem)  female
+10       3      Sandstrom, Miss. Marguerite Rut  female
+11       1             Bonnell, Miss. Elizabeth  female
+12       3       Saundercock, Mr. William Henry    male
+13       3          Andersson, Mr. Anders Johan    male
+..     ...                                  ...     ...
+20       2                 Fynney, Mr. Joseph J    male
+21       2                Beesley, Mr. Lawrence    male
+22       3          McGowan, Miss. Anna "Annie"  female
+23       1         Sloper, Mr. William Thompson    male
+24       3        Palsson, Miss. Torborg Danira  female
+
+[16 rows x 3 columns]
+
+
+
+
+
+Criando graficos com pandas
+
+O uso dos parâmetros index_col e parse_dates da read_csv função para definir a primeira (0ª) 
+coluna como índice do resultado DataFramee
+ converter as datas na coluna em Timestampobjetos, respectivamente.
+
+Visualização rapida dos dados unsando plot
+
+air_quality.plot()
+Out[5]: <Axes: xlabel='datetime'>
+
+plt.show()
+
+
+# Colocando todas as colunas em graficos 
+Subplots separados para cada coluna de dados são suportados pelo subplotsargumento das plotfunções.
+ Vale a pena conferir as opções integradas disponíveis em cada uma das funções do Pandas Plot.
+
+axs = air_quality.plot.area(figsize=(12, 4), subplots=True)
+
+plt.show()
